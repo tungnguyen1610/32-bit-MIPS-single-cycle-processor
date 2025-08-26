@@ -1,0 +1,121 @@
++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++       REPORT INFO       ++++++++++
++++++++++++++++++++++++++++++++++++++++++++++
+
+
+SUMMARY
+===============================================
+|     Property     |          Value           |
+===============================================
+| User             | runner                   |
+| Host             | f207eb5a7b59             |
+| Tool             | Riviera-PRO 2023.04      |
+| Report file      | /home/runner/cov.txt     |
+| Report date      | 2025-08-26 04:07         |
+| Report arguments | -verbose                 |
+| Input file       | /home/runner/fcover.acdb |
+| Input file date  | 2025-08-26 04:07         |
+| Number of tests  | 1                        |
+===============================================
+
+
+TEST DETAILS
+==============================================
+| Property |              Value              |
+==============================================
+| Test     | fcover.acdb:fcover              |
+| Status   | Error                           |
+| Args     | asim +access+r work.testbench   |
+| Simtime  | 690 ns                          |
+| Cputime  | 0.649 s                         |
+| Seed     | 1                               |
+| Date     | 2025-08-26 04:07                |
+| User     | runner                          |
+| Host     | f207eb5a7b59                    |
+| Host os  | Linux64                         |
+| Tool     | Riviera-PRO 2023.04 (simulator) |
+==============================================
+
+
++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++     DESIGN HIERARCHY    ++++++++++
++++++++++++++++++++++++++++++++++++++++++++++
+
+
+CUMULATIVE SUMMARY
+=============================================
+|    Coverage Type    | Weight | Hits/Total |
+=============================================
+| Covergroup Coverage |      1 |    90.370% |
+|---------------------|--------|------------|
+| Types               |        |      0 / 1 |
+=============================================
+CUMULATIVE INSTANCE-BASED COVERAGE: 90.370%
+COVERED INSTANCES: 0 / 1
+FILES: 1
+
+
+CLASS - /processor_subscriber : work.processor_subscriber
+
+
+    SUMMARY
+    =============================================
+    |    Coverage Type    | Weight | Hits/Total |
+    =============================================
+    | Covergroup Coverage |      1 |    90.370% |
+    |---------------------|--------|------------|
+    | Types               |        |      0 / 1 |
+    =============================================
+    WEIGHTED AVERAGE LOCAL: 90.370%
+
+
+    COVERGROUP COVERAGE
+    ===============================================================================
+    |                 Covergroup                 |  Hits   |  Goal /  |  Status   |
+    |                                            |         | At Least |           |
+    ===============================================================================
+    | TYPE /processor_subscriber/cover_processor | 90.370% | 100.000% | Uncovered |
+    ===============================================================================
+
+
++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++       DESIGN UNITS      ++++++++++
++++++++++++++++++++++++++++++++++++++++++++++
+
+
+CUMULATIVE SUMMARY
+=============================================
+|    Coverage Type    | Weight | Hits/Total |
+=============================================
+| Covergroup Coverage |      1 |    90.370% |
+|---------------------|--------|------------|
+| Types               |        |      0 / 1 |
+=============================================
+CUMULATIVE DESIGN-BASED COVERAGE: 90.370%
+COVERED DESIGN UNITS: 0 / 1
+FILES: 1
+
+
+CLASS - work.processor_subscriber
+
+
+    SUMMARY
+    =============================================
+    |    Coverage Type    | Weight | Hits/Total |
+    =============================================
+    | Covergroup Coverage |      1 |    90.370% |
+    |---------------------|--------|------------|
+    | Types               |        |      0 / 1 |
+    =============================================
+    WEIGHTED AVERAGE: 90.370%
+
+
+    COVERGROUP COVERAGE
+    ===============================================================================
+    |                 Covergroup                 |  Hits   |  Goal /  |  Status   |
+    |                                            |         | At Least |           |
+    ===============================================================================
+    | TYPE /processor_subscriber/cover_processor | 90.370% | 100.000% | Uncovered |
+    ===============================================================================
+
+
