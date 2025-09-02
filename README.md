@@ -40,12 +40,16 @@ The processor under test is a **32-bit, single-cycle MIPS processor**, supportin
 - **I-type instructions**  
 - **J-type instructions**  
 
+**Design flow chart**: 
+https://tungnguyen1610.github.io/Tung_Blog/digital-design/single-cycle-processor.html
+
 ### Verification Flow  
 1. **Instruction-level Verification:**  
    - Each instruction type is verified using constrained random verification (CRV).  
-   - Current implementation includes only **R-type** instructions.  
+   - Current implementation includes verification of **R-type** and **I-type** instructions.  
 
 2. **System-level Validation:**  
+   - Identify instructions with data dependencies (e.g LOAD,STORE)
    - Hardcoded sequences of instructions are loaded into instruction memory.  
    - The execution validates overall processor functionality.  
 
@@ -94,11 +98,23 @@ https://max.cs.kzoo.edu/cs230/Resources/MIPS/MachineXL/InstructionFormats.html
 
 ---
 
-## Coverage Bins  
-Coverage bins will capture:  
-- Instruction types exercised (R, I, J).  
-- Operand ranges and corner cases.  
-- Functional coverage of ALU operations and memory accesses.  
+## Coverage Bins 
+- **Objective:** Validate complete functional behavior of the processor.
+- **Bins:**
+  - Assign coverage bins for each instruction type.
+  - Bins cover the opcode ranges and specific configurations for different instructions.
+  - Track coverage to ensure all aspects of the processor design are thoroughly tested.
+
+| Instruction             | Opcode (6b) | Funct (6b, R-type only) | Signal Coverage Bins                  |
+|--------------------------|-------------|-------------------------|----------------------------------------|
+| ADD (R-type)             | 000000      | 100000 (0x20)          | [32'h0000_0020 : 32'h0000_0020]        |
+| SUB (R-type)             | 000000      | 100010 (0x22)          | [32'h0000_0022 : 32'h0000_0022]        |
+| AND (R-type)             | 000000      | 100100 (0x24)          | [32'h0000_0024 : 32'h0000_0024]        |
+| OR (R-type)              | 000000      | 100101 (0x25)          | [32'h0000_0025 : 32'h0000_0025]        |
+| SLT (R-type)             | 000000      | 101010 (0x2A)          | [32'h0000_002A : 32'h0000_002A]        |
+| ADDI (I-type)            | 001000 (0x08)| —                      | [32'h2000_0000 : 32'h2000_FFFF]        |
+| LW (I-type)              | 100011 (0x23)| —                      | [32'h8C00_0000 : 32'h8C00_FFFF]        |
+| SW (I-type)              | 101011 (0x2B)| —                      | [32'hAC00_0000 : 32'hAC00_FFFF]        |
 
 ---
 
