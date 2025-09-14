@@ -107,11 +107,11 @@ https://max.cs.kzoo.edu/cs230/Resources/MIPS/MachineXL/InstructionFormats.html
 
 | Instruction             | Opcode (6b) | Funct (6b, R-type only) | Signal Coverage Bins                  |
 |--------------------------|-------------|-------------------------|----------------------------------------|
-| ADD (R-type)             | 000000      | 100000 (0x20)          | [32'h0000_0020 : 32'h0000_0020]        |
-| SUB (R-type)             | 000000      | 100010 (0x22)          | [32'h0000_0022 : 32'h0000_0022]        |
-| AND (R-type)             | 000000      | 100100 (0x24)          | [32'h0000_0024 : 32'h0000_0024]        |
-| OR (R-type)              | 000000      | 100101 (0x25)          | [32'h0000_0025 : 32'h0000_0025]        |
-| SLT (R-type)             | 000000      | 101010 (0x2A)          | [32'h0000_002A : 32'h0000_002A]        |
+| ADD (R-type)             | 000000      | 100000 (0x20)          | [32'h0000_0020 : 32'h03FF_F820]        |
+| SUB (R-type)             | 000000      | 100010 (0x22)          | [32'h0000_0022 : 32'h03FF_F822]        |
+| AND (R-type)             | 000000      | 100100 (0x24)          | [32'h0000_0024 : 32'h03FF_F824]        |
+| OR (R-type)              | 000000      | 100101 (0x25)          | [32'h0000_0025 : 32'h03FF_F825]        |
+| SLT (R-type)             | 000000      | 101010 (0x2A)          | [32'h0000_002A : 32'h03FF_F82A]        |
 | ADDI (I-type)            | 001000 (0x08)| —                      | [32'h2000_0000 : 32'h2000_FFFF]        |
 | LW (I-type)              | 100011 (0x23)| —                      | [32'h8C00_0000 : 32'h8C00_FFFF]        |
 | SW (I-type)              | 101011 (0x2B)| —                      | [32'hAC00_0000 : 32'hAC00_FFFF]        |
@@ -136,37 +136,31 @@ The verification environment follows **UVM methodology**, ensuring modularity an
    - Extends `uvm_test`.  
    - Builds the environment and launches test sequences.
    - Set internal database, virtual interface handle available pass it down to all components below uvm_test_top  
+ 
 
-3. **Processor Top**  
-   - Instantiates DUT and interface.  
-   - Connects all verification components.  
-
-4. **Processor Environment**  
+3. **Processor Environment**  
    - Contains agent, monitor, subscriber, and scoreboard.
    - Get interface from the configuration database   
+   - Connect monitor analysis port to subscriber and scoreboard 
 
-5. **Processor Agent**  
+4. **Processor Agent**  
    - Manages driver and sequencer.  
 
-6. **Processor Interface**  
-   - Connects DUT and testbench (signals, clock, reset, etc).  
-
-7. **Processor Monitor**  
+5. **Processor Monitor**  
    - Observes DUT outputs and forwards results through analysis port
 
-8. **Processor Driver**  
+6. **Processor Driver**  
    - Drives signals into DUT.  
 
-9. **Processor Scoreboard**  
+7. **Processor Scoreboard**  
    - Compares DUT results vs. expected outputs.  
 
-10. **Processor Sequence**  
+8. **Processor Sequence**  
     - Defines transactions between sequencer, driver, and scoreboard.  
 
-11. **Processor Subscriber**  
+9. **Processor Subscriber**  
     - Tracks line and functional coverage.  
     - Generates reports.  
-
 ---
 
 ## Conclusion  
