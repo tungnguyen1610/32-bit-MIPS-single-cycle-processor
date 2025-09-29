@@ -10,7 +10,7 @@ interface processor_interface(input logic clk, input logic reset);
   logic [31:0] writedata;          
   logic        memwrite;
   
-  // Driver clocking block (for TB)
+  // Driver clocking blockpro (for TB)
   clocking driver_cb @(posedge clk);
     output  instr; 
     input  pc;
